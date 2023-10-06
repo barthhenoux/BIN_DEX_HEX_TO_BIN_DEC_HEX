@@ -16,5 +16,3 @@ def convert_bin_to_dec ():
 
     # Affichez le résultat en décimal
     print("Le nombre binaire", nombre_binaire, "correspond à", nombre_decimal, "en décimal.")
-
-convert_bin_to_dec()

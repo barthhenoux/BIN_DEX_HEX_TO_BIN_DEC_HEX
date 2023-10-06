@@ -15,6 +15,10 @@ def convert_dec_to_hex(dth):
 # Demander à l'utilisateur d'entrer un nombre décimal
 decimal_input = int(input("Entrez un nombre décimal que vous voulez convertir en base hexadecimal: "))
 
+while decimal_input==type(str):
+    print("Veuillez entrez un nombre décimal")
+
+    
 # Appeler la fonction de conversion et afficher le résultat
 hexadecimal_result = convert_dec_to_hex(decimal_input)
-print(f"Le nombre hexadécimal correspondant est : {hexadecimal_result}")
+print(f"Le nombre hexadécimal correspondant est : " +str(hexadecimal_result))
