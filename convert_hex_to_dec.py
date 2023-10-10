@@ -11,7 +11,7 @@ hexadecimal_chars = "0123456789ABCDEFabcdef"
 for char in hexadecimal_input[::-1]:
     # Assurer que le caractère est valide
     if char not in hexadecimal_chars:
-        print(f"Caractère hexadécimal invalide : {char}")
+        print(f"Caractère hexadécimal invalide : ")
         break
     # Convertir le caractère en décimal
     if '0' <= char <= '9':
