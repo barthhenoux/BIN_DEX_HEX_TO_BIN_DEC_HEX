@@ -15,6 +15,5 @@ def convert_bin_to_dec ():
         nombre_decimal += chiffre_binaire * (2 ** i)
 
     # Affichez le résultat en décimal
-    print("Le nombre binaire", nombre_binaire, "correspond à", nombre_decimal, "en décimal.")
-
+    print("Le nombre binaire", nombre_binaire, "correspond à", nombre_decimal, "en décimal.")  
 convert_bin_to_dec()
