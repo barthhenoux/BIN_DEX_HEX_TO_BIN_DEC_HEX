@@ -1,7 +1,7 @@
 def convert_bin_to_dec ():
 
     # Demandez à l'utilisateur de saisir un nombre binaire
-    nombre_binaire = input("Entrez un nombre binaire : ")
+    nombre_binaire = input("Entrez un nombre binaire que vous voulez convertir en nombre decimal: ")
 
     # Initialisez la variable pour stocker le résultat en décimal
     nombre_decimal = 0

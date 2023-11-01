@@ -1,49 +1,35 @@
 def convert_dec_to_hex(dth):
     if dth == 0:
-        return "0"  # Gestion du cas où le nombre décimal est 0
+        return "0"  # Handling the case where the decimal number is 0
 
     hexadecimal_chars = "0123456789ABCDEF"
     hexadecimal = ""
 
     while dth > 0:
-        remainder = dth % 16  # Calcul du reste de la division par 16
-        hexadecimal = hexadecimal_chars[remainder] + hexadecimal  # Ajout du caractère correspondant au reste
-        dth = dth // 16  # Division entière par 16
+        remainder = dth % 16  # Calculate the remainder of the division by 16
+        hexadecimal = hexadecimal_chars[remainder] + hexadecimal  # Add the character corresponding to the remainder
+        dth = dth // 16  # Integer division by 16
 
     return hexadecimal
 
 # Demander à l'utilisateur d'entrer un nombre décimal 
-decimal_input = int(input("Entrez un nombre décimal que vous voulez convertir en base hexadecimal: "))
-
-# Initialisation de la variable decimal_input_str
-decimal_input_str = ""
+decimal_input_str = input("Enter a decimal number you want to convert to hexadecimal: ")
 
 # Tant que l'entrée n'est pas un nombre décimal valide, continuez à demander à l'utilisateur
 while True:
-    decimal_input_str = input("Entrez un nombre décimal que vous voulez convertir en base hexadecimal: ")
-    
-    # Vérifier si l'entrée est une chaîne de caractères (str)
-    if isinstance(decimal_input_str, int):
-        print("Veuillez entrer un nombre décimal valide.")
+    if not decimal_input_str:
+        print("Veuillez entrer une valeur.")
+        decimal_input_str = input("Enter a decimal number you want to convert to hexadecimal: ")
+        continue  # Revenir au début de la boucle sans essayer de convertir
+
+    try:
+        decimal_input = int(decimal_input_str)
+    except ValueError:
+        print("Invalid input. Please make sure to enter a valid decimal number.")
+        decimal_input_str = ""  # Réinitialiser l'entrée
     else:
-        try:
-            decimal_input = int(decimal_input_str)
-            break  # Sortir de la boucle si l'entrée est valide
-        except ValueError:
-            print("Entrée non valide. Assurez-vous d'entrer un nombre décimal valide.")
-
-# À ce stade, decimal_input contient un nombre décimal valide
-# Appeler la fonction de conversion et afficher le résultat
-hexadecimal_result = convert_dec_to_hex(decimal_input)
-print(f"Le nombre hexadécimal correspondant est : {hexadecimal_result}")
-
-    
-# Appeler la fonction de conversion et afficher le résultat
-hexadecimal_result = convert_dec_to_hex(decimal_input)
-print(f"Le nombre hexadécimal correspondant est : " +str(hexadecimal_result))
-
-
-
-
+        hexadecimal_result = convert_dec_to_hex(decimal_input)
+        print(f"The corresponding hexadecimal number is: {hexadecimal_result}")
+        break
 
  
