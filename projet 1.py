@@ -84,4 +84,4 @@ def convert_bin_to_hex():
 
 def convert_hex_to_bin():
     nombre=int(input("Entrez un nombre en base 16 que vous voulez convertir en un nombre en base 2"))
-    nombre=convert
+    nombre=convert_dec_to_bin
