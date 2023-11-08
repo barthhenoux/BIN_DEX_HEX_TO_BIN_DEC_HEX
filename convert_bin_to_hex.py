@@ -1,29 +1,41 @@
-def binary_to_hexadecimal(binary_number):
-    # Dictionnaire pour la conversion binaire-hexadécimale
-    hex_dict = {
-        '0000': '0', '0001': '1', '0010': '2', '0011': '3',
-        '0100': '4', '0101': '5', '0110': '6', '0111': '7',
-        '1000': '8', '1001': '9', '1010': 'A', '1011': 'B',
-        '1100': 'C', '1101': 'D', '1110': 'E', '1111': 'F'
-    }
+def convert_bin_to_hex():
+    while True:
+        # Demandez à l'utilisateur de saisir un nombre binaire
+        binary_number = input("Entrez un nombre en base 2 que vous voulez convertir en base 16: ")
 
-    # Assurez-vous que la longueur de la chaîne binaire est un multiple de 4
-    while len(binary_number) % 4 != 0:
-        binary_number = '0' + binary_number
+        if not binary_number:
+            print("Veuillez entrer une valeur.")
+            continue  # Revenir au début de la boucle
 
-    # Initialise la chaîne hexadécimale résultante
-    hexadecimal_result = ""
 
-    # Parcours la chaîne binaire par groupes de 4 bits
-    for i in range(0, len(binary_number), 4):
-        group = binary_number[i:i+4]
-        hexadecimal_result += hex_dict[group]
+        if all(bit in "01" for bit in binary_number):
+            # Initialisez la variable pour stocker le résultat en décimal
+            decimal_number = 0
 
-    return hexadecimal_result
+            # Parcourez les chiffres binaires de droite à gauche
+            for i in range(len(binary_number)):
+                # Obtenez le chiffre binaire à la position i (de droite à gauche)
+                chiffre_binaire = int(binary_number[-(i + 1)])
 
-# Demander à l'utilisateur d'entrer un nombre binaire
-binary_input = input("Entrez un nombre binaire : ")
+                # Ajoutez la contribution du chiffre binaire actuel au résultat en décimal
+                decimal_number += chiffre_binaire * (2 ** i)
 
-# Appeler la fonction de conversion et afficher le résultat
-hexadecimal_result = binary_to_hexadecimal(binary_input)
-print(f"Le nombre hexadécimal correspondant est : {hexadecimal_result}")
+
+            # Maintenant, convertissez le nombre décimal en base 16
+            hexadecimal_chars = "0123456789ABCDEF"
+            nombre_hexadecimal = ""
+
+            if decimal_number == 0:
+                nombre_hexadecimal = "0"
+            else:
+                while decimal_number > 0:
+                    rest = decimal_number % 16  # Calculez le reste de la division par 16
+                    nombre_hexadecimal = hexadecimal_chars[rest] + nombre_hexadecimal  # Ajoutez le caractère correspondant au reste
+                    decimal_number = decimal_number // 16  # Division entière par 16
+
+            print(f"Le nombre {binary_number} en base 2(binaire) correspond à {nombre_hexadecimal} en base 16(hexadecimal)")
+            break
+        else:
+            print("Erreur. Pensez à entrer un nombre en base 2 que vous souhaitez convertir en base 16.")
+
+convert_bin_to_hex()

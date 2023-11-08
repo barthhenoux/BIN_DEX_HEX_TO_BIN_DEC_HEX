@@ -1,19 +1,41 @@
-def hex_to_bin(hexadecimal):
-    # Dictionnaire pour la correspondance hexadécimal -> binaire
-    hex_to_bin_dict = {
-        '0': '0000', '1': '0001', '2': '0010', '3': '0011',
-        '4': '0100', '5': '0101', '6': '0110', '7': '0111',
-        '8': '1000', '9': '1001', 'A': '1010', 'B': '1011',
-        'C': '1100', 'D': '1101', 'E': '1110', 'F': '1111'
-    }
+def convert_hex_to_bin():
+    while True:
+        # Demander à l'utilisateur d'entrer un nombre hexadécimal
+        hexadecimal_input = input("Entrez un nombre en base 16 que vous voulez convertir en base 2: ")
 
-    # Convertir le nombre hexadécimal en binaire
-    binary = ''.join(hex_to_bin_dict[char] for char in hexadecimal.upper())
-    
-    return binary
+        if not hexadecimal_input:
+            print("Veuillez entrer une valeur.")
+            continue  # Revenir au début de la boucle
 
-# Exemple d'utilisation
-hexadecimal_input = input("Entrez un nombre hexadécimal : ")
-binary_output = hex_to_bin(hexadecimal_input)
-print(f"Le nombre binaire correspondant est : {binary_output}")
+        decimal_result = 0
+        hexadecimal_input = hexadecimal_input.upper()  # Assurez-vous que les lettres hexadécimales sont en majuscules
 
+        try:
+            for char in hexadecimal_input:
+                if char in "0123456789":
+                    decimal_result = decimal_result * 16 + int(char)
+                elif 'A' <= char <= 'F':
+                    decimal_result = decimal_result * 16 + ord(char) - ord('A') + 10
+                else:
+                    raise ValueError("Assurez-vous d'entrer un nombre en base 16 que vous voulez convertir en base 2")
+
+            # Maintenant, convertissez le nombre décimal en base 2
+            decimal_number = decimal_result
+            binaire = []
+
+            if decimal_number == 0:
+                print(f"Le nombre {decimal_number} en base 10 équivaut à 0 en base 2.")
+            else:
+                while decimal_number != 0:
+                    quotient = decimal_number // 2
+                    rest = decimal_number % 2
+                    binaire.insert(0, str(rest))  # Ajoutez le bit au début de la liste sous forme de chaîne
+                    decimal_number = quotient
+
+                binary_str = ''.join(binaire)  # Convertir la liste en une seule chaîne
+                print(f"Le nombre {decimal_result} en base 10(decimal) correspond à {binary_str} en base 2(binaire).")
+            break
+        except ValueError as e:
+            print(f"Erreur : {e}")
+
+convert_hex_to_bin()
