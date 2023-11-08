@@ -1,7 +1,7 @@
 def convert_bin_to_dec():
     while True:
         # Demandez à l'utilisateur de saisir un nombre binaire
-        binary_number = input("Entrez un nombre en base 2(binaire) que vous souhaitez convertir en base 10(decimal): ")
+        binary_number = input("Entrez un nombre en base 2 que vous souhaitez convertir en base 10: ")
 
         if not binary_number:
             print("Veuillez entrer une valeur.")
@@ -102,7 +102,7 @@ def convert_hex_to_dec():
                 else:
                     raise ValueError("Erreur: Pensez à entrez un nombre en base 16 que vous souhaitez convertir en base 10")
 
-            print(f"Le nombre {hexadecimal_input} correspond à {decimal_result}")
+            print(f"Le nombre {hexadecimal_input} en base 16 correspond à {decimal_result} en base 10")
             break  # Sortir de la boucle si la conversion est réussie
 
         except ValueError as e:
@@ -193,7 +193,7 @@ def convert_base():
     nchoice = "123456"
     choix = ""
     choice = "oui"  # Initialisez la variable choice ici pour éviter l'erreur
-    print("\nBienvenue sur OBM. Ce programme vous permet de convertir une base 2,10 ou 16 en une autre des 3 trois bases citées.\n")
+    print("\nBienvenue sur OBM. Ce programme vous permet de convertir une base 2, 10 ou 16 en une autre des 3 trois bases citées.\n")
 
     print("Choisissez le type de conversion:\n")
     print("1. Convertir binaire en décimal")
@@ -206,7 +206,7 @@ def convert_base():
     choix = input("Entrez le numéro correspondant à la conversion de votre choix: ")
 
     while not choix in nchoice:
-        print("Erreur:Veuillez entrez un chiffre entre 1 et 6 correspondant à la conversion de votre choix")
+        print("\nErreur: Veuillez entrez un chiffre entre 1 et 6 correspondant à la conversion de votre choix\n")
         print("Choisissez le type de conversion:\n")
         print("1. Convertir binaire en décimal")
         print("2. Convertir binaire en hexadécimal")
@@ -215,7 +215,7 @@ def convert_base():
         print("5. Convertir hexadécimal en binaire")
         print("6. Convertir hexadécimal en décimal\n")
         
-        choix = input("Entrez le numéro de votre choix : ")
+        choix = input("Entrez le numéro correspondant à la conversion de votre choix: ")
 
         if choix not in nchoice:
             print("Choix invalide. Veuillez entrer 1, 2, 3, 4, 5, ou 6 pour choisir une option.")
