@@ -1,5 +1,5 @@
 # BIN_DEX_HEX_TO_BIN_DEC_HEX
-Projet 1 :
+Projet 1 :BIN_DEX_HEX_TO_BIN_DEC_HEX
 
 Francais
 
@@ -15,8 +15,8 @@ Ce code est fait de plusieurs fonctions convertissants un nombre choisis avec le
 Lancement du programme :
 
 Assurez-vous que vous avez Python installé sur votre ordinateur.
-Copiez le code fourni dans un fichier Python (par exemple, conversion_base.py) et enregistrez-le.
-Ouvrez votre terminal (ou invite de commandes) et exécutez le programme en utilisant la commande python conversion_base.py.
+Copiez le code fourni dans un fichier Python et enregistrez-le.
+Ouvrez votre terminal (ou invite de commandes) et exécutez le programme .
 
 Choix du Type de Conversion :
 
@@ -48,7 +48,7 @@ Lorsque vous avez terminé toutes les conversions que vous souhaitez effectuer, 
 
 
 
-Anglais
+English
 
 Tool Introduction:
 
